@@ -8,10 +8,15 @@ public class bombScript2D : MonoBehaviour
     public float fieldofImpact;
     public float force;
     public LayerMask LayerToHit;
+
+    //audio variables
+    public AudioSource audioSource;
+    public AudioClip timerSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(bombCountdown());
     }
 
     // Update is called once per frame
@@ -23,6 +28,13 @@ public class bombScript2D : MonoBehaviour
         }
     }
 
+    IEnumerator bombCountdown()
+    {
+        audioSource.PlayOneShot(timerSound);
+        yield return new WaitForSeconds(timerSound.length);
+        explode();
+        Destroy(gameObject);
+    }
     void explode()
     {
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldofImpact, LayerToHit);
