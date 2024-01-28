@@ -21,9 +21,15 @@ public class Simple2DCharacterController : MonoBehaviour
         // Check if the player is on the ground
         isGrounded = Physics2D.OverlapCircle(transform.position, 1f, groundLayer);
 
-        // Player movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        if (isGrounded)
+        {
+            // Player movement
+            float horizontalInput = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+
+            
+        }   
+
 
         // Jumping
         if (isGrounded && Input.GetButtonDown("Jump"))
