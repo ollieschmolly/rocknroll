@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4123034154409451679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21, y: -2.88, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135,13 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08922fa25c7b9b4d865285208bd87d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldofImpact: 6.4
-  force: 300
+  fieldofImpact: 6
+  force: 200
   LayerToHit:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 159
   audioSource: {fileID: 8995254884260669617}
   timerSound: {fileID: 8300000, guid: 5dd5861cc7228874fa1a2efd7578d690, type: 3}
+  explosionEffect: {fileID: 1153054446848647095, guid: 67d780fc34119f245a1c2dc2d72ecf9e, type: 3}
 --- !u!50 &6968897547473658894
 Rigidbody2D:
   serializedVersion: 4

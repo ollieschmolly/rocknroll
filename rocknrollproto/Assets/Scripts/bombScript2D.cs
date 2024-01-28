@@ -13,6 +13,8 @@ public class bombScript2D : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip timerSound;
 
+    public ParticleSystem explosionEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,8 @@ public class bombScript2D : MonoBehaviour
         audioSource.PlayOneShot(timerSound);
         yield return new WaitForSeconds(timerSound.length);
         explode();
-        Destroy(gameObject);
+
+
     }
     void explode()
     {
@@ -44,6 +47,8 @@ public class bombScript2D : MonoBehaviour
             Vector2 direction = obj.transform.position - transform.position;
             obj.GetComponent<Rigidbody2D>().AddForce(direction * force);
         }
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
