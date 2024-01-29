@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip jumpSound;
     public List<AudioClip> walkSounds;
 
+    public GameObject youdiepanel;
     // Update is called once per frame
     void Update()
     {
@@ -80,6 +81,18 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("death"))
+        {
+            // Apply the effect of the pickup (e.g., increase score, give power-up)
+            // For example, increase the player's score by 100
+            
+            youdiepanel.SetActive(true);
+            // Destroy the pickup object
+            Destroy(gameObject);
+        }
+    }
     ////play random walk sound
     //int randomIndex = Random.Range(0, walkSounds.Count); // Generate a random index
     //AudioClip randomElement = walkSounds[randomIndex]; // Retrieve the element at the random index
